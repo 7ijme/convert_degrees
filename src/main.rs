@@ -1,3 +1,5 @@
+use std::f64::consts::PI;
+
 use bpaf::Bpaf;
 use degree::DegreeUnit;
 
@@ -31,23 +33,33 @@ fn main() {
 
     let (degrees, to): (f64, DegreeUnit) = match args.from {
         DegreeUnit::Celsius => match args.to {
-            DegreeUnit::Celsius | DegreeUnit::Fahrenheit => {
+            DegreeUnit::Kelvin => (args.degrees + 273.15, args.to),
+            _ => {
                 (args.degrees * 1.8 + 32.0, DegreeUnit::Fahrenheit)
             }
-            DegreeUnit::Kelvin => (args.degrees + 273.15, args.to),
         },
         DegreeUnit::Fahrenheit => match args.to {
-            DegreeUnit::Fahrenheit | DegreeUnit::Celsius => {
+            DegreeUnit::Kelvin => ((args.degrees + 459.67) * 5.0 / 9.0, args.to),
+            _ => {
                 ((args.degrees - 32.0) / 1.8, DegreeUnit::Celsius)
             }
-            DegreeUnit::Kelvin => ((args.degrees + 459.67) * 5.0 / 9.0, args.to),
         },
         DegreeUnit::Kelvin => match args.to {
-            DegreeUnit::Kelvin | DegreeUnit::Celsius => {
-                (args.degrees - 273.15, DegreeUnit::Celsius)
-            }
 
             DegreeUnit::Fahrenheit => (args.degrees * 9.0 / 5.0 - 459.67, args.to),
+            _ => {
+                (args.degrees - 273.15, DegreeUnit::Celsius)
+            }
+        },
+        DegreeUnit::Degrees => match args.to {
+            _ => {
+                (args.degrees * PI / 180.0 , DegreeUnit::Radians)
+            }
+        },
+        DegreeUnit::Radians => match args.to {
+            _ => {
+                (args.degrees * 180.0 / PI, DegreeUnit::Degrees)
+            }
         },
     };
 
