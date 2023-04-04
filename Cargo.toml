@@ -7,7 +7,6 @@ license = "MIT"
 authors = ["Tijme"]
 repository = "https://github.com/7ijme/convert_degrees"
 
-
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [[bin]]
 name = "deg"
