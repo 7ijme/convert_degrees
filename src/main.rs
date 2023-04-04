@@ -14,7 +14,7 @@ struct Args {
         argument("from"),
         fallback(DegreeUnit::Celsius),
     )]
-    /// From which unit to convert -- Can be celsius(c), fahrenheit(f) or kelvin(k)
+    /// From which unit to convert -- Can be celsius(c), fahrenheit(f) kelvin(k), degrees(d) or radians(r)
     from: DegreeUnit,
     #[bpaf(
         short,
@@ -22,7 +22,7 @@ struct Args {
         argument("to"),
         fallback(DegreeUnit::Fahrenheit),
     )]
-    /// To which unit to convert   -- Can be celsius(c), fahrenheit(f) or kelvin(k)
+    /// To which unit to convert   -- Can be celsius(c), fahrenheit(f) kelvin(k), degrees(d) or radians(r)
     to: DegreeUnit,
     #[bpaf(positional("degrees"))]
     degrees: f64,
