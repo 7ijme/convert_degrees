@@ -1,6 +1,6 @@
 # Convert Degrees
 
-With this small program you can convert between Celsius, Fahrenheit and Kelvin very easily.
+With this small program you can convert between Celsius, Fahrenheit and Kelvin & Degrees and radians very easily.
 
 ---------------------------------------------------
 
