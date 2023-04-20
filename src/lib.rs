@@ -54,7 +54,7 @@ pub trait ConvertTemperatures {
     fn to_kelvin(&self) -> f64;
     fn to_degrees(&self) -> f64;
     fn to_radians(&self) -> f64;
-    fn to(&self, unit: &DegreeUnit) -> Temperature {
+    fn to(&self, unit: DegreeUnit) -> Temperature {
         match unit {
             DegreeUnit::Celsius => Temperature {
                 value: self.to_celsius(),

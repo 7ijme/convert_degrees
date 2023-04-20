@@ -25,6 +25,6 @@ fn main() {
     println!(
         "{} = {}",
         temp,
-        temp.to(&args.to),
+        temp.to(args.to),
     );
 }

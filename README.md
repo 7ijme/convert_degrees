@@ -37,7 +37,7 @@ fn main() {
         unit: DegreeUnit::Celsius,
     };
 
-    let fahrenheit = celcius.to(&DegreeUnit::Fahrenheit);
+    let fahrenheit = celcius.to(DegreeUnit::Fahrenheit);
 
     println!("{} is the same as {}", celcius, fahrenheit);
     // output: 12°C is the same as 53.6°F
