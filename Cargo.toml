@@ -1,6 +1,6 @@
 [package]
 name = "convert_degrees"
-version = "0.1.3"
+version = "0.2.0"
 edition = "2021"
 description = "Converts degrees between Fahrenheit, Celsius, and Kelvin & degrees and radians"
 license = "MIT"
@@ -8,9 +8,20 @@ authors = ["Tijme"]
 repository = "https://github.com/7ijme/convert_degrees"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "convert_degrees"
+
 [[bin]]
 name = "deg"
 path = "src/main.rs"
+required-features = ["bin"]
 
 [dependencies]
-bpaf = { version = "0.7", features = ["derive", "bright-color"] }
+bpaf = { version = "0.7", features = [
+  "derive",
+  "bright-color",
+], optional = true }
+
+
+[features]
+bin = ["bpaf"]
